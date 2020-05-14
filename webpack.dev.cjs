@@ -8,9 +8,6 @@ module.exports = {
   mode: "development",
   devtool: "source-map",
   stats: "verbose",
-  devServer: {
-    hot:true
-  },
   module: {
     rules: [
       {
@@ -25,6 +22,10 @@ module.exports = {
       {
           test:/\.css$/,
           use: ["style-loader","css-loader"]
+      },
+            {
+        test: /\.html$/,
+        loader: 'html-loader'
       }
     ],
   },
@@ -41,7 +42,7 @@ module.exports = {
       // Automatically remove all unused webpack assets on rebuild
       cleanStaleWebpackAssets: true,
       protectWebpackAssets: false,
-    }),
+    })
   ],
 };
 

@@ -21,7 +21,7 @@ app.get("/test", (req,res) => {
     res.send('<h1>Test</h1>')
 })
 
-const port = 8000;
+const port = 8080;
 const listening = () => {
   console.log(`Travel app listening on port ${port}`);
 };
