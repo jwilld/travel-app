@@ -3,9 +3,16 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import path from "path";
 
+// environment variable dependency setup
 import dotenv from "dotenv";
 dotenv.config();
+const pixabayKey = process.env.PB_KEY
 
+// api call functions
+import getPhoto from './pixabay.js';
+getPhoto(pixabayKey,'rose')
+
+// server setup
 const app = express();
 app.use(cors());
 app.use(express.static("dist"));
