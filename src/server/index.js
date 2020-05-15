@@ -6,15 +6,18 @@ import dotenv from "dotenv";
 
 import getPhoto from "./pixabay.js";
 import getWeather from "./weatherbit.js";
+import getGeo from "./geonames.js";
 
 // environment variable dependency setup
 dotenv.config();
 const pixabayKey = process.env.PB_KEY;
 const weatherbitKey = process.env.WB_KEY;
+const geonamesKey = process.env.GEO_KEY
 
 // api call functions
 // getPhoto(pixabayKey, "aruba");
 // getWeather(weatherbitKey, "Hinesville,GA", "2020/05/16", "2020/05/17");
+getGeo(geonamesKey,'hinesville')
 
 // server setup
 const app = express();
