@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+@import './landing';
+$bg-color: #FAFAFA;
 
 body{
     font-family: "Poppins", sans-serif;
+    background-color: $bg-color;
+    height: 100vh; 
+    display: flex;
+    align-items: center;
 }
