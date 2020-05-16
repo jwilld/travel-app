@@ -1,19 +1,58 @@
-.travel-landing-section{
+.travel-landing-section {
+    box-shadow: 0px 0px 1px lightgray;
     height: 90%;
-    margin: 10px;
+    margin: 0 20px 0 20px;
     background-color: white;
     border-radius: 25px;
     display: grid;
-    grid-template-columns: repeat(2,1fr);
-    .travel-intro-image{
-        height: 100%; width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 0.2fr;
+    .travel-intro-image {
+        grid-row: 1;
+        height: 100%;
+        width: 100%;
         grid-column: 2;
+        grid-row: 1;
         object-fit: cover;
         border-top-right-radius: inherit;
     }
-    .travel-landing-text{
+    .travel-landing-text {
+        grid-row: 1;
+        grid-column: 1;
         align-self: center;
         margin: 10px;
+    }
+    .nav-bar {
+        grid-column: 1;
+        padding: 0px 20px 0px 20px;
+        ul {
+            grid-row: 2;
+            margin: 0; padding: 0;
+            height: 100%; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+}
+
+@media only screen and (max-width: 700px){
+    .travel-landing-section{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr .2fr;
+        .travel-intro-image{
+            grid-row: 1;
+            grid-column: 1;
+            border-top-left-radius: inherit;
+        }
+        .travel-landing-text{
+            grid-row: 2;
+            grid-column: 1;
+        }
+        .nav-bar{
+            grid-row: 3;
+            grid-column: 1/3;
+        }
         
     }
 }
