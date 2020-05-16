@@ -1,23 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
-@import './landing';
-@import './about';
-$bg-color: #FAFAFA;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+@import "./landing";
+@import "./about";
+@import "./discover";
+$bg-color: #fafafa;
 
-body{
+body {
     font-family: "Poppins", sans-serif;
     background-color: $bg-color;
-    height: 100vh; 
+    height: 100vh;
     display: flex;
     align-items: center;
 }
-h1,h2,h3,h4,h5,h6{
-    margin: 0; padding: 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
 }
-li{
-    transition: .5s;
+li {
+    transition: 0.5s;
     list-style-type: none;
 }
-li:hover{
+li:hover {
     color: lightgray;
-    transition: .5s ease-in-out;
+    transition: 0.5s ease-in-out;
 }

@@ -1,8 +1,9 @@
 import { renderHome } from "./js/Home.js";
-import {renderAbout} from './js/About.js'
+import { renderAbout } from "./js/About.js";
+import { renderDiscover } from "./js/Discover";
 import "./styles/style.scss";
-import { render } from "sass";
 
-// render homepage
-// renderHome();
-// renderAbout()
+// render pages
+renderHome();
+// renderAbout();
+// renderDiscover();
