@@ -1,0 +1,13 @@
+.about-text-container{
+    grid-column: 1/3;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media only screen and (max-width: 700px){
+    .about-text-container{
+        grid-column: 1;
+        grid-row: 1/3;
+    }
+}
