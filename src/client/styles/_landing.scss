@@ -1,6 +1,6 @@
-.travel-landing-section {
+.content-container{
     box-shadow: 0px 0px 1px lightgray;
-    height: 90%;
+    height: 90%; width: 100%;
     margin: 0 20px 0 20px;
     background-color: white;
     border-radius: 25px;
@@ -24,6 +24,7 @@
     }
     .nav-bar {
         grid-column: 1;
+        grid-row: 2;
         padding: 0px 20px 0px 20px;
         ul {
             grid-row: 2;
@@ -37,7 +38,7 @@
 }
 
 @media only screen and (max-width: 700px){
-    .travel-landing-section{
+    .content-container{
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr .2fr;
         .travel-intro-image{
