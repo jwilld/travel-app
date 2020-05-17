@@ -7,7 +7,7 @@ const renderDiscover = () => {
     image: "",
   };
 
-  const inputs = ["date", "location"];
+  const inputs = ["start date","end date", "location"];
 
   const form = document.createElement("form");
   form.className = "discover-form";
@@ -29,7 +29,7 @@ const renderDiscover = () => {
   let tripImage = document.createElement("img");
   tripImage.setAttribute(
     "src",
-    "https://cdn.pixabay.com/photo/2013/11/13/12/27/hawaii-209956_1280.jpg"
+    "https://images.unsplash.com/photo-1534329539061-64caeb388c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=881&q=80"
   );
   tripImage.className = "discover-trip-image";
   fragment.appendChild(tripImage);

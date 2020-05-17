@@ -4,6 +4,6 @@ import { renderDiscover } from "./js/Discover";
 import "./styles/style.scss";
 
 // render pages
-renderHome();
+// renderHome();
 // renderAbout();
-// renderDiscover();
+renderDiscover();
