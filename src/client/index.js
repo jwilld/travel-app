@@ -6,7 +6,7 @@ import "./styles/style.scss";
 renderHome();
 const nav = document.querySelector("nav");
 nav.addEventListener("click", (event) => {
-  const content = document.querySelector('.content-container')
+  const content = document.querySelector('.content')
   while (content.firstChild) {
     content.removeChild(content.firstChild);
   }

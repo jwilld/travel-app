@@ -27,7 +27,7 @@ const renderHome = () => {
   //append image to fragment
   fragment.appendChild(imgElement);
 
-  document.querySelector(".content-container").appendChild(fragment);
+  document.querySelector(".content").appendChild(fragment);
 };
 
 export { renderHome };

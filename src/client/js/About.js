@@ -13,7 +13,7 @@ const renderAbout = () => {
     aboutContainer.appendChild(aboutText);
   
     fragment.appendChild(aboutContainer);
-    document.querySelector(".content-container").appendChild(fragment);
+    document.querySelector(".content").appendChild(fragment);
   };
   
   export { renderAbout };

@@ -34,7 +34,7 @@ const renderDiscover = () => {
   tripImage.className = "discover-trip-image";
   fragment.appendChild(tripImage);
 
-  document.querySelector(".content-container").appendChild(fragment);
+  document.querySelector(".content").appendChild(fragment);
 };
 
 export { renderDiscover };
