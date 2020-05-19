@@ -15,6 +15,10 @@ const pixabayKey = process.env.PB_KEY;
 const weatherbitKey = process.env.WB_KEY;
 const geonamesKey = process.env.GEO_KEY;
 
+const db = {
+  trips:[],
+}
+
 // api call functions
 // getPhoto(pixabayKey, "aruba");
 // getWeather(weatherbitKey, "Hinesville,GA", "2020/05/16", "2020/05/17");
@@ -30,6 +34,12 @@ app.use(bodyParser.json());
 app.post('/location', (req,res) => {
   const location = req.body.location
   getGeo(geonamesKey,location)
+})
+
+app.post('/trip', (req,res) => {
+  const trip = req.body
+  db.trips.push(trip)
+  console.log(trips)
 })
 app.get("/test", (req, res) => {
   res.send("<h1>Test</h1>");
