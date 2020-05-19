@@ -10,7 +10,7 @@ nav.addEventListener("click", (event) => {
   while (content.firstChild) {
     content.removeChild(content.firstChild);
   }
-  window.history.pushState('','',`/${event.target.innerText}`)
+  // window.history.pushState('','',`/${event.target.innerText}`)
   const page = event.target.innerText;
   switch (page) {
     case "Home":

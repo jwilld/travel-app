@@ -27,13 +27,10 @@ app.use(express.static("dist"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get("/", (req, res) => {
-  res.sendFile(path.resolve("src/client/html/index.html"));
-});
-app.get("/home", (req, res) => {
-  res.sendFile(path.resolve("src/client/html/index.html"));
-});
-
+app.post('/location', (req,res) => {
+  const location = req.body.location
+  getGeo(geonamesKey,location)
+})
 app.get("/test", (req, res) => {
   res.send("<h1>Test</h1>");
 });
