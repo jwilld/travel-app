@@ -3,7 +3,28 @@ import { renderAbout } from "./js/About.js";
 import { renderDiscover } from "./js/Discover";
 import "./styles/style.scss";
 
-// render pages
-// renderHome();
-// renderAbout();
-renderDiscover();
+renderHome();
+const nav = document.querySelector("nav");
+nav.addEventListener("click", (event) => {
+  const content = document.querySelector('.content-container')
+  while (content.firstChild) {
+    content.removeChild(content.firstChild);
+  }
+  window.history.pushState('','',`/${event.target.innerText}`)
+  const page = event.target.innerText;
+  switch (page) {
+    case "Home":
+      renderHome();
+      break;
+    case "Discover":
+      renderDiscover();
+      break;
+    case "About":
+      renderAbout();
+      break;
+    default:
+      renderHome();
+      break;
+  }
+});
+export { renderHome, renderAbout, renderDiscover };

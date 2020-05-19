@@ -8,6 +8,7 @@ import getPhoto from "./pixabay.js";
 import getWeather from "./weatherbit.js";
 import getGeo from "./geonames.js";
 
+
 // environment variable setup
 dotenv.config();
 const pixabayKey = process.env.PB_KEY;
@@ -29,10 +30,17 @@ app.use(bodyParser.json());
 app.get("/", (req, res) => {
   res.sendFile(path.resolve("src/client/html/index.html"));
 });
+app.get("/home", (req, res) => {
+  res.sendFile(path.resolve("src/client/html/index.html"));
+});
 
 app.get("/test", (req, res) => {
   res.send("<h1>Test</h1>");
 });
+
+app.get('/home',(req,res) => {
+})
+
 
 const port = 8080;
 const listening = () => {
