@@ -39,7 +39,7 @@ app.post('/location', (req,res) => {
 app.post('/trip', (req,res) => {
   const trip = req.body
   db.trips.push(trip)
-  console.log(trips)
+  console.log(db.trips)
 })
 app.get("/test", (req, res) => {
   res.send("<h1>Test</h1>");
