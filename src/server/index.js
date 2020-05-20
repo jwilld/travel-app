@@ -8,7 +8,6 @@ import getPhoto from "./pixabay.js";
 import getWeather from "./weatherbit.js";
 import getGeo from "./geonames.js";
 
-
 // environment variable setup
 dotenv.config();
 const pixabayKey = process.env.PB_KEY;
@@ -16,8 +15,10 @@ const weatherbitKey = process.env.WB_KEY;
 const geonamesKey = process.env.GEO_KEY;
 
 const db = {
-  trips:[],
-}
+  trips: [
+    { location: "Miami, Fl", startdate: "05/20/2020", enddate: "06/10/2020" },
+  ],
+};
 
 // api call functions
 // getPhoto(pixabayKey, "aruba");
@@ -31,29 +32,31 @@ app.use(express.static("dist"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.post('/location', async (req,res) => {
-  const location = req.body.location
-  const result = await getGeo(geonamesKey,location)
-  res.send(result)
-})
+app.post("/location", async (req, res) => {
+  const location = req.body.location;
+  const result = await getGeo(geonamesKey, location);
+  res.send(result);
+});
 
-app.post('/trip', (req,res) => {
-  const trip = req.body
-  console.log(trip)
-  db.trips.push(trip)
-  console.log(db.trips)
-})
+app.post("/trip", (req, res) => {
+  const trip = req.body;
+  console.log(trip);
+  db.trips.push(trip);
+  console.log(db.trips);
+});
+
+app.get("/trips", (req, res) => {
+  console.log(db.trips);
+  res.send(db.trips);
+});
 app.get("/test", (req, res) => {
   res.send("<h1>Test</h1>");
 });
 
-app.get('/home',(req,res) => {
-})
-
+app.get("/home", (req, res) => {});
 
 const port = 8080;
 const listening = () => {
   console.log(`Travel app listening on port ${port}`);
 };
 app.listen(port, listening);
-

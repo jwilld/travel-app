@@ -1,12 +1,13 @@
 import { renderHome } from "./js/Home.js";
 import { renderAbout } from "./js/About.js";
 import { renderDiscover } from "./js/Discover";
+import { renderTrips } from "./js/Trips.js";
 import "./styles/style.scss";
 
 renderHome();
 const nav = document.querySelector("nav");
 nav.addEventListener("click", (event) => {
-  const content = document.querySelector('.content')
+  const content = document.querySelector(".content");
   while (content.firstChild) {
     content.removeChild(content.firstChild);
   }
@@ -21,6 +22,9 @@ nav.addEventListener("click", (event) => {
       break;
     case "About":
       renderAbout();
+      break;
+    case "Trips":
+      renderTrips();
       break;
     default:
       renderHome();
