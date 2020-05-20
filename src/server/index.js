@@ -31,13 +31,15 @@ app.use(express.static("dist"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.post('/location', (req,res) => {
+app.post('/location', async (req,res) => {
   const location = req.body.location
-  getGeo(geonamesKey,location)
+  const result = await getGeo(geonamesKey,location)
+  res.send(result)
 })
 
 app.post('/trip', (req,res) => {
   const trip = req.body
+  console.log(trip)
   db.trips.push(trip)
   console.log(db.trips)
 })

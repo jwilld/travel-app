@@ -16,13 +16,6 @@
     input::placeholder {
         color: #d6dee9;
     }
-    .discover-search-list{
-        padding: 0;
-        margin: 0;
-        z-index: 5;
-        position: absolute;
-        background-color: white;
-    }
     button {
         border: none;
         background-color: transparent;
@@ -33,6 +26,12 @@
     }
     .location-input {
         font-size: 33px;
+    }
+    .invalid{
+        border-bottom:  0.5px solid rgba(255, 0, 0, 0.534);
+    }
+    .valid{
+        border-bottom: 1px solid rgba(46, 219, 46, 0.575);
     }
 }
 .discover-trip-image {
