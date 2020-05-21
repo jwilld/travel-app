@@ -57,8 +57,8 @@ app.post("/trip", async (req, res) => {
   trip.image = pixabayReq.hits[0].fullHDURL;
 
   // add geo name to db
-  const geoLocation = await getGeo(geonamesKey, pixabayLocation )
-  trip.location = `${geoLocation.postalCodes[0].placeName}, ${geoLocation.postalCodes[0]['ISO3166-2']}`
+  const geoLocation = await getGeo(geonamesKey, pixabayLocation);
+  trip.location = `${geoLocation.postalCodes[0].placeName}, ${geoLocation.postalCodes[0]["ISO3166-2"]}`;
 
   trip.averageTemp = `${Math.round(resultWeather)}°F`;
   db.trips.push(trip);
@@ -75,10 +75,10 @@ app.post("/pixabay", async (req, res) => {
   res.send(result);
 });
 
-
-
 const port = 8080;
 const listening = () => {
   console.log(`Travel app listening on port ${port}`);
 };
 app.listen(port, listening);
+
+export { port, app };
