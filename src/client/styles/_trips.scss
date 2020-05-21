@@ -1,0 +1,33 @@
+.trips-container{
+    align-self: center;
+    height: 500px;
+    padding: 0 20px 0 20px;
+    grid-column: 1/3;
+    grid-row: 1;
+    overflow: scroll;
+
+    .trip-box{
+        padding: 10px;
+        height: 100px;
+        border-bottom: .5px solid rgba(211, 211, 211, 0.747);
+        display: flex;
+        justify-content: space-between;
+        .left-section{
+            height: 100%; width: 100%;
+        }
+        .middle-section{
+            height: 100%; width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .right-section{
+            height: 100%; width: 100%;
+        }
+        .pixabay-img{
+            border-radius: 2px;
+            height: 100%; width: 100%;
+            object-fit: cover;
+        }
+    }
+}

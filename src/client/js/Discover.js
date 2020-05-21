@@ -63,8 +63,8 @@ const renderDiscover = () => {
     event.preventDefault();
     const trip = {
       location: state.location,
-      startDate: state.startdate,
-      endDate: state.enddate,
+      startdate: state.startdate,
+      enddate: state.enddate,
     };
     if (
       state.location !== empty &&

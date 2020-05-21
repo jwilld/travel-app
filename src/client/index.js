@@ -3,8 +3,9 @@ import { renderAbout } from "./js/About.js";
 import { renderDiscover } from "./js/Discover";
 import { renderTrips } from "./js/Trips.js";
 import "./styles/style.scss";
+import { render } from "sass";
 
-renderHome();
+renderTrips()
 const nav = document.querySelector("nav");
 nav.addEventListener("click", (event) => {
   const content = document.querySelector(".content");

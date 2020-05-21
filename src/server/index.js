@@ -16,15 +16,16 @@ const geonamesKey = process.env.GEO_KEY;
 
 const db = {
   trips: [
-    { location: "Miami, Fl", startdate: "05/20/2020", enddate: "06/10/2020" },
+    {
+      location: "Miami, Fl",
+      startdate: "05/20/2020",
+      enddate: "06/10/2020",
+      averageTemp: "75.02°F",
+      image:
+        "https://pixabay.com/get/54e1d4444953ac14f6d1867dda79367a143bdee551516c4870267bd4964acc5cb8_1920.jpg",
+    },
   ],
 };
-
-// api call functions
-// getPhoto(pixabayKey, "aruba");
-// getWeather(weatherbitKey, "Hinesville,GA", "2020/05/16", "2020/05/17");
-// getGeo(geonamesKey,'hinesville')
-
 // server setup
 const app = express();
 app.use(cors());
@@ -38,9 +39,21 @@ app.post("/location", async (req, res) => {
   res.send(result);
 });
 
-app.post("/trip", (req, res) => {
+app.post("/trip", async (req, res) => {
   const trip = req.body;
-  console.log(trip);
+  // add average weather to db
+  const resultWeather = await getWeather(weatherbitKey, req.body.location);
+  console.log(resultWeather);
+  // add pixabay image to db
+  const pixabayLocation = trip.location.substring(
+    0,
+    trip.location.indexOf(",")
+  );
+  console.log(pixabayLocation);
+  const pixabayReq = await getPhoto(pixabayKey, pixabayLocation);
+  trip.image = pixabayReq.hits[0].fullHDURL;
+
+  trip.averageTemp = `${resultWeather}°F`;
   db.trips.push(trip);
   console.log(db.trips);
 });
@@ -49,11 +62,13 @@ app.get("/trips", (req, res) => {
   console.log(db.trips);
   res.send(db.trips);
 });
-app.get("/test", (req, res) => {
-  res.send("<h1>Test</h1>");
+
+app.post("/pixabay", async (req, res) => {
+  const result = await getPhoto(pixabayKey, req.body.location);
+  res.send(result);
 });
 
-app.get("/home", (req, res) => {});
+
 
 const port = 8080;
 const listening = () => {

@@ -1,4 +1,4 @@
-import { getReq } from "./ServerReq";
+import { getReq, postReq } from "./ServerReq";
 
 const renderTrips = async () => {
   const state = {
@@ -7,31 +7,50 @@ const renderTrips = async () => {
   state.trips = await getReq("trips");
 
   const fragment = document.createDocumentFragment();
-  
+  const tripsContainer = document.createElement("div");
+  tripsContainer.className = "trips-container";
+
   for (let trip of state.trips) {
-    const tripBox = document.createElement('div');
-    tripBox.className = 'trip-box'
-    
-    const leftSection = document.createElement('div');
-    leftSection.className = 'left-section'
+    const tripBox = document.createElement("div");
+    tripBox.className = "trip-box";
 
-    const locationText = document.createElement('p');
-    locationText.className = 'location-text'
+    const leftSection = document.createElement("div");
+    leftSection.className = "left-section";
 
-    const dateText = document.createElement('span');
-    dateText.className = 'date-text'
-    
-    // set text 
-    locationText.innerText = trip.location
-    dateText.innerText = `${trip.startdate} - ${trip.enddate}`
+    const locationText = document.createElement("p");
+    locationText.className = "location-text";
+
+    const dateText = document.createElement("span");
+    dateText.className = "date-text";
+
+    // set text
+    locationText.innerText = trip.location;
+    dateText.innerText = `${trip.startdate} - ${trip.enddate}`;
     // append elements
-    leftSection.appendChild(locationText)
-    leftSection.appendChild(dateText)
+    leftSection.appendChild(locationText);
+    leftSection.appendChild(dateText);
+    tripBox.appendChild(leftSection);
 
-    tripBox.appendChild(leftSection)
-    
-    fragment.appendChild(tripBox)
+    const middleSection = document.createElement("div");
+    middleSection.className = "middle-section";
+    const temp = document.createElement("p");
+    temp.innerText = trip.averageTemp;
+    middleSection.appendChild(temp);
+    tripBox.appendChild(middleSection);
+
+    const rightSection = document.createElement("div");
+    rightSection.className = "right-section";
+    const image = document.createElement("img");
+    image.className = "pixabay-img";
+    image.setAttribute("src", trip.image);
+
+    rightSection.appendChild(image);
+    tripBox.appendChild(rightSection);
+
+    tripsContainer.appendChild(tripBox);
   }
+
+  fragment.appendChild(tripsContainer);
   document.querySelector(".content").appendChild(fragment);
   console.log(state);
 };
