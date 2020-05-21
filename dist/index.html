@@ -1,1 +1,8 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><script src="https://kit.fontawesome.com/e2d91eb8dd.js" crossorigin="anonymous"></script><title>Travel App</title></head><body><section class="content-container"><div class="content"></div><nav class="nav-bar"><ul><a><li class="nav-home">Home</li></a><li>Discover</li><li>Trips</li><li>About</li></ul></nav></section><script src="main.js"></script></body></html>
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><script src="https://kit.fontawesome.com/e2d91eb8dd.js" crossorigin="anonymous"></script><title>Travel App</title><script>// Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+            // Use the window load event to keep the page load performant
+            console.log('hey I am your service worker');
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }</script></head><body><section class="content-container"><div class="content"></div><nav class="nav-bar"><ul><a><li class="nav-home">Home</li></a><li>Discover</li><li>Trips</li><li>About</li></ul></nav></section><script src="main.js"></script></body></html>
