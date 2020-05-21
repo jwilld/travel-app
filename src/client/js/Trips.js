@@ -32,10 +32,14 @@ const renderTrips = async () => {
     tripBox.appendChild(leftSection);
 
     const middleSection = document.createElement("div");
+    const tempText = document.createElement("span");
+    tempText.className = 'temp-text'
+    tempText.innerText = "7 day average";
     middleSection.className = "middle-section";
     const temp = document.createElement("p");
     temp.innerText = trip.averageTemp;
     middleSection.appendChild(temp);
+    middleSection.appendChild(tempText)
     tripBox.appendChild(middleSection);
 
     const rightSection = document.createElement("div");
@@ -52,7 +56,6 @@ const renderTrips = async () => {
 
   fragment.appendChild(tripsContainer);
   document.querySelector(".content").appendChild(fragment);
-  console.log(state);
 };
 
 export { renderTrips };

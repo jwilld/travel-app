@@ -14,7 +14,6 @@ const postReq = async (object, route) => {
       return res.json();
     })
     .catch((e) => console.log(e));
-  console.log(result)
 };
 
 const getReq = async (route) => {

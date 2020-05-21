@@ -16,10 +16,15 @@
             height: 100%; width: 100%;
         }
         .middle-section{
+            text-align: center;
             height: 100%; width: 100%;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            .temp-text{
+                color: lightgray;
+            }
         }
         .right-section{
             height: 100%; width: 100%;
@@ -29,5 +34,12 @@
             height: 100%; width: 100%;
             object-fit: cover;
         }
+    }
+}
+
+@media only screen and (max-width:700px){
+    .trips-container{
+        padding: 0 5px 0 5px;
+
     }
 }

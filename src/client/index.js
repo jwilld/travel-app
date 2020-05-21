@@ -6,6 +6,7 @@ import "./styles/style.scss";
 import { render } from "sass";
 
 renderHome()
+// navigation for pages in the app
 const nav = document.querySelector("nav");
 nav.addEventListener("click", (event) => {
   const content = document.querySelector(".content");
