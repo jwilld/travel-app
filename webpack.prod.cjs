@@ -6,10 +6,14 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 module.exports = {
   entry: "./src/client/index.js",
   mode: "production",
+  node: {
+    fs:'empty'
+
+  },
   module: {
     rules: [
       {
-        test: "/.js$/",
+        test: /\.js$/,
         exclude: /node_modules/,
         loader: "babel-loader",
       },
@@ -21,7 +25,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: "./src/client/views/index.html",
+      template: "./src/client/html/index.html",
       filename: "./index.html",
     }),
     new GenerateSW(),

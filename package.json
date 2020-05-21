@@ -39,7 +39,7 @@
   "scripts": {
     "test": "jest   --runInBand --forceExit",
     "start": "nodemon src/server/index.js",
-    "build-prod": "webpack --config webpack.prod.js",
+    "build-prod": "webpack --config webpack.prod.cjs",
     "build-dev": "webpack-dev-server --config webpack.dev.cjs --open"
   },
   "repository": {

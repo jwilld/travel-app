@@ -33,6 +33,10 @@ app.use(express.static("dist"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.get("/", function (req, res) {
+  res.sendFile('dist/index.html')
+});
+
 app.post("/location", async (req, res) => {
   const location = req.body.location;
   const result = await getGeo(geonamesKey, location);
