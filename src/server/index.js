@@ -41,10 +41,13 @@ app.post("/location", async (req, res) => {
 
 app.post("/trip", async (req, res) => {
   const trip = req.body;
+
   // add average weather to db
   const resultWeather = await getWeather(weatherbitKey, req.body.location);
   console.log(resultWeather);
+
   // add pixabay image to db
+  // pixababy location is a stripped string containing only the city
   const pixabayLocation = trip.location.substring(
     0,
     trip.location.indexOf(",")
@@ -53,7 +56,11 @@ app.post("/trip", async (req, res) => {
   const pixabayReq = await getPhoto(pixabayKey, pixabayLocation);
   trip.image = pixabayReq.hits[0].fullHDURL;
 
-  trip.averageTemp = `${resultWeather}°F`;
+  // add geo name to db
+  const geoLocation = await getGeo(geonamesKey, pixabayLocation )
+  trip.location = `${geoLocation.postalCodes[0].placeName}, ${geoLocation.postalCodes[0]['ISO3166-2']}`
+
+  trip.averageTemp = `${Math.round(resultWeather)}°F`;
   db.trips.push(trip);
   console.log(db.trips);
 });

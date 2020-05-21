@@ -10,7 +10,9 @@ const getPhoto = async (apiKey, location) => {
     .catch((e) => {
       return e;
     });
-    return result
+    return result.hits.length === 0 ? {hits:[{fullHDURL:'https://cdn.pixabay.com/photo/2014/07/01/12/35/taxi-cab-381233_1280.jpg'}]}
+    :
+    result
 };
 
 export default getPhoto;
