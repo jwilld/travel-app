@@ -28,6 +28,6 @@ module.exports = {
       template: "./src/client/html/index.html",
       filename: "./index.html",
     }),
-    // new GenerateSW(),
+    new GenerateSW(),
   ],
 };
